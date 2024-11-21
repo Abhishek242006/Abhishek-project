@@ -33,13 +33,14 @@ if st.button("Guess"):
     else:
         st.session_state.attempts += 1
         st.success(f"🎉 Congratulations! You've guessed the number in {st.session_state.attempts} attempts.")
-        st.session_state.secret_number, st.session_state.attempts = start_new_game()  # Reset game
-
+        st.session_state.secret_number = random.randint(1, 100) # Return random number and number of attempts
+        st.session_state.attempts = 0
 # Show number of attempts
 st.sidebar.subheader("Game Starts")
 st.sidebar.write(f"Attempts: {st.session_state.attempts}")
 
 # Button to start a new game
 if st.sidebar.button("Start New Game"):
-    st.session_state.secret_number, st.session_state.attempts = start_new_game()
+    st.session_state.secret_number = random.randint(1, 100) # Return random number and number of attempts
+    st.session_state.attempts = 0
     st.success("Game has been reset. Good luck!")
