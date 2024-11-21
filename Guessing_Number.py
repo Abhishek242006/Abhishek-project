@@ -3,7 +3,7 @@ import random
 
 # Function to start a new game
 def start_new_game():
-    return random.randint(1, 10), 0  # Return random number and number of attempts
+    return random.randint(1, 100) # Return random number and number of attempts
 
 # Title of the app
 st.title("🎲 Number Guessing Game 🎮")
@@ -21,7 +21,7 @@ if 'secret_number' not in st.session_state:
     st.session_state.secret_number, st.session_state.attempts = start_new_game()
 
 # Input for the player's guess
-guess = st.number_input("Enter your guess:", min_value=1, max_value=10, step=1)
+guess = st.number_input("Enter your guess:", min_value=1, max_value=100, step=1)
 
 # Submit button
 if st.button("Guess"):
@@ -34,12 +34,11 @@ if st.button("Guess"):
         st.success("🔽 Your guess is too high! Try again.")
     else:
         st.session_state.attempts += 1
-        st.balloons()
         st.success(f"🎉 Congratulations! You've guessed the number in {st.session_state.attempts} attempts.")
         st.session_state.secret_number, st.session_state.attempts = start_new_game()  # Reset game
 
 # Show number of attempts
-st.sidebar.subheader("Game Stats")
+st.sidebar.subheader("Game Starts")
 st.sidebar.write(f"Attempts: {st.session_state.attempts}")
 
 # Button to start a new game
