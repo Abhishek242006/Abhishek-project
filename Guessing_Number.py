@@ -1,9 +1,6 @@
 import streamlit as st
 import random
 
-# Function to start a new game
-def start_new_game():
-    return random.randint(1, 100) # Return random number and number of attempts
 
 # Title of the app
 st.title("🎲 Number Guessing Game 🎮")
