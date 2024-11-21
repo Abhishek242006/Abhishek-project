@@ -18,7 +18,8 @@ st.markdown("""
 
 # Start the game
 if 'secret_number' not in st.session_state:
-    st.session_state.secret_number, st.session_state.attempts = start_new_game()
+    st.session_state.secret_number = random.randint(1, 100) # Return random number and number of attempts
+    st.session_state.attempts = 0
 
 # Input for the player's guess
 guess = st.number_input("Enter your guess:", min_value=1, max_value=100, step=1)
